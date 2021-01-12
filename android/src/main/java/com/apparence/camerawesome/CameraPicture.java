@@ -103,6 +103,9 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
             Log.e(TAG, "takePicture: mCameraSession.getCaptureSession() is null");
             return;
         }
+        if(pictureImageReader == null){
+            Log.e("Niless");
+        }
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
             @Override
             public void onImageAvailable(ImageReader reader) {
