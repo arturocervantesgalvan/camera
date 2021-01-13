@@ -105,7 +105,7 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
         }
         if(pictureImageReader == null){
             pictureImageReader = ImageReader.newInstance(size.getWidth(), size.getHeight(), ImageFormat.JPEG, 2);
-            //mCameraSession.addPictureSurface(pictureImageReader.getSurface());
+            mCameraSession.addPictureSurface(pictureImageReader.getSurface());
             Log.e(TAG,"Niless test close");
         }
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
@@ -115,6 +115,7 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
                     ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                     CameraPicture.this.writeToFile(buffer, file);
                     onResultListener.onSuccess();
+                    Log.e(TAG, "Ok");
                 } catch (IOException e) {
                     onResultListener.onFailure("IOError");
                 }
@@ -122,8 +123,10 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
         }, null);
         if(autoFocus) {
             mCameraSession.setState(CameraPictureStates.STATE_REQUEST_FOCUS);
+            Log.e(TAG, "auto focus");
         } else {
             captureStillPicture();
+            Log.e(TAG, "StillPicture");
         }
     }
 
