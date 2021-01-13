@@ -246,7 +246,7 @@ public class CameraPreview implements CameraSession.OnCaptureSession, EventChann
             if(e instanceof IllegalArgumentException){
                 Log.e(TAG, " IllegalArgumentException");
             }
-            Log.e(TAG, "refreshConfiguration", e.problem);
+            Log.e(TAG, "refreshConfiguration 12", e);
         }
     }
 
