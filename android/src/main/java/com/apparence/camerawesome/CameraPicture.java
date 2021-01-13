@@ -100,10 +100,6 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
             return;
         }
         if(mCameraSession.getCaptureSession() == null) {
-            Log.e(TAG, "takePicture: mCameraSession.getCaptureSession() is null");
-            return;
-        }
-        if(pictureImageReader == null){
             this.refresh();
         }
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
