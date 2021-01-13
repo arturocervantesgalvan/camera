@@ -237,7 +237,16 @@ public class CameraPreview implements CameraSession.OnCaptureSession, EventChann
         try {
             mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(), mCaptureFocusedCallback, null);
         } catch (CameraAccessException | IllegalStateException | IllegalArgumentException e) {
-            Log.e(TAG, "refreshConfiguration", e);
+            if(e instanceof CameraAccessException){
+                Log.e(TAG, e.problem);
+            }
+            if(e instanceof IllegalStateException){
+                Log.e(TAG, e.message);
+            }
+            if(e instanceof IllegalArgumentException){
+                Log.e(TAG, e.message);
+            }
+            Log.e(TAG, "refreshConfiguration", e.problem);
         }
     }
 
