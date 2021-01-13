@@ -118,7 +118,7 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
                     onResultListener.onSuccess();
                     Log.e(TAG, "Ok");
                 } catch (IOException e) {
-                    Log.e(TAG, e.toString());
+                    Log.e(TAG, "Error");
                     onResultListener.onFailure("IOError");
                 }
             }
