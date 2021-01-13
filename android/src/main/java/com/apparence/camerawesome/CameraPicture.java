@@ -104,7 +104,8 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
             return;
         }
         if(pictureImageReader == null){
-            Log.e("Niless");
+            Log.e(TAG,"Niless");
+            return;
         }
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
             @Override
