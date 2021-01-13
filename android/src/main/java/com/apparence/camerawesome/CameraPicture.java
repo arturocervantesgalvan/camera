@@ -123,13 +123,13 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
                 }
             }
         }, null);
-        if(autoFocus) {
-            mCameraSession.setState(CameraPictureStates.STATE_REQUEST_FOCUS);
-            Log.e(TAG, "auto focus");
-        } else {
-            captureStillPicture();
-            Log.e(TAG, "StillPicture");
-        }
+        // if(autoFocus) {
+        //     mCameraSession.setState(CameraPictureStates.STATE_REQUEST_FOCUS);
+        //     Log.e(TAG, "auto focus");
+        // } else {
+        //     captureStillPicture();
+        //     Log.e(TAG, "StillPicture");
+        // }
     }
 
     public void setFlashMode(FlashMode flashMode) {
