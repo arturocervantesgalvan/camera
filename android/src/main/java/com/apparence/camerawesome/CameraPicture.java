@@ -111,12 +111,14 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
             @Override
             public void onImageAvailable(ImageReader reader) {
+                Log.e(TAG, "open Image");
                 try (Image image = reader.acquireNextImage()) {
                     ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                     CameraPicture.this.writeToFile(buffer, file);
                     onResultListener.onSuccess();
                     Log.e(TAG, "Ok");
                 } catch (IOException e) {
+                    Log.e(TAG, e.toString());
                     onResultListener.onFailure("IOError");
                 }
             }
