@@ -104,8 +104,9 @@ public class CameraPicture implements CameraSession.OnCaptureSession, CameraSett
             return;
         }
         if(pictureImageReader == null){
-            Log.e(TAG,"Niless");
-            return;
+            pictureImageReader = ImageReader.newInstance(size.getWidth(), size.getHeight(), ImageFormat.JPEG, 2);
+            mCameraSession.addPictureSurface(pictureImageReader.getSurface());
+            Log.e(TAG,"Niless test");
         }
         pictureImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
             @Override
